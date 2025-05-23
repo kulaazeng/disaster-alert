@@ -6,7 +6,6 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-
 @Entity('regions')
 export class Region {
   @PrimaryGeneratedColumn('uuid')
