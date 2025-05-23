@@ -3,6 +3,7 @@ import { RegionsModule } from './regions/regions.module';
 import { ConfigModule } from '@nestjs/config';
 import { DatabaseConfigAsync } from './common/configs/database.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AlertSettingsModule } from './alert-settings/alert-settings.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     }),
     TypeOrmModule.forRootAsync(DatabaseConfigAsync),
     RegionsModule,
+    AlertSettingsModule,
   ],
 })
 export class AppModule {}
