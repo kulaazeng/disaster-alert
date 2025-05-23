@@ -1,7 +1,8 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { RegionsService } from './regions.service';
 import { CreateRegionDto } from './dto/create-regions.dto';
 import { ApiOperation } from '@nestjs/swagger';
+import { UpdateRegionDto } from './dto/update-regions.dto';
 
 @Controller('regions')
 export class RegionsController {
@@ -17,5 +18,11 @@ export class RegionsController {
   @Get()
   findAll() {
     return this.regionsService.findAll();
+  }
+
+  @ApiOperation({ summary: 'แก้ไขข้อมูล region' })
+  @Put(':id')
+  update(@Param('id') id: string, @Body() updateRegionDto: UpdateRegionDto) {
+    return this.regionsService.update(id, updateRegionDto);
   }
 }
