@@ -1,4 +1,3 @@
-import { Region } from 'src/regions/entities/region.entity';
 import {
   Entity,
   Column,

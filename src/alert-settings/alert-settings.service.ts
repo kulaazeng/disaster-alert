@@ -11,7 +11,9 @@ export class AlertSettingsService {
     private alertSettingRepository: Repository<AlertSetting>,
   ) {}
 
-  async createAlertSetting(alertSetting: CreateAlertSettingDto): Promise<AlertSetting> {
+  async createAlertSetting(
+    alertSetting: CreateAlertSettingDto,
+  ): Promise<AlertSetting> {
     const newAlertSetting = this.alertSettingRepository.create(alertSetting);
     return this.alertSettingRepository.save(newAlertSetting);
   }

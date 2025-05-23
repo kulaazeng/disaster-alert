@@ -7,6 +7,6 @@ import { AlertSetting } from './entities/alert-setting.entity';
 @Module({
   imports: [TypeOrmModule.forFeature([AlertSetting])],
   providers: [AlertSettingsService],
-  controllers: [AlertSettingsController]
+  controllers: [AlertSettingsController],
 })
 export class AlertSettingsModule {}

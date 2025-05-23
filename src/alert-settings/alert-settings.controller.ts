@@ -6,17 +6,19 @@ import { ApiOperation } from '@nestjs/swagger';
 
 @Controller('alert-settings')
 export class AlertSettingsController {
-    constructor(private readonly alertSettingsService: AlertSettingsService) {}
+  constructor(private readonly alertSettingsService: AlertSettingsService) {}
 
-    @ApiOperation({ summary: 'สร้างการตั้งค่าเตือน' })
-    @Post()
-    async createAlertSetting(@Body() alertSetting: CreateAlertSettingDto): Promise<AlertSetting> {
-        return this.alertSettingsService.createAlertSetting(alertSetting);
-    }
+  @ApiOperation({ summary: 'สร้างการตั้งค่าเตือน' })
+  @Post()
+  async createAlertSetting(
+    @Body() alertSetting: CreateAlertSettingDto,
+  ): Promise<AlertSetting> {
+    return this.alertSettingsService.createAlertSetting(alertSetting);
+  }
 
-    @ApiOperation({ summary: 'ดึงข้อมูลการตั้งค่าเตือนทั้งหมด' })
-    @Get()
-    async getAllAlertSettings(): Promise<AlertSetting[]> {
-        return this.alertSettingsService.getAllAlertSettings();
-    }
+  @ApiOperation({ summary: 'ดึงข้อมูลการตั้งค่าเตือนทั้งหมด' })
+  @Get()
+  async getAllAlertSettings(): Promise<AlertSetting[]> {
+    return this.alertSettingsService.getAllAlertSettings();
+  }
 }
