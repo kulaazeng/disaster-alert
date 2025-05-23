@@ -4,6 +4,6 @@ import { DisasterRisksController } from './disaster-risks.controller';
 
 @Module({
   providers: [DisasterRisksService],
-  controllers: [DisasterRisksController]
+  controllers: [DisasterRisksController],
 })
 export class DisasterRisksModule {}

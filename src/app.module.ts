@@ -5,6 +5,8 @@ import { DatabaseConfigAsync } from './common/configs/database.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AlertSettingsModule } from './alert-settings/alert-settings.module';
 import { DisasterRisksModule } from './disaster-risks/disaster-risks.module';
+import { DisasterDataModule } from './disaster-data/disaster-data.module';
+import { RedisModule } from './redis/redis.module';
 
 @Module({
   imports: [
@@ -13,9 +15,11 @@ import { DisasterRisksModule } from './disaster-risks/disaster-risks.module';
       envFilePath: '.env',
     }),
     TypeOrmModule.forRootAsync(DatabaseConfigAsync),
+    RedisModule,
     RegionsModule,
     AlertSettingsModule,
     DisasterRisksModule,
+    DisasterDataModule,
   ],
 })
 export class AppModule {}

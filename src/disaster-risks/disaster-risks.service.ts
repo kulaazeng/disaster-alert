@@ -2,9 +2,9 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class DisasterRisksService {
-    constructor() { }
+  constructor() {}
 
-    async getAllDisasterRisks(): Promise<any[]> {
-        return [];
-    }
+  async getAllDisasterRisks(): Promise<any[]> {
+    return [];
+  }
 }

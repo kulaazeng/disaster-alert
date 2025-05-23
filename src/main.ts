@@ -15,8 +15,8 @@ async function bootstrap() {
   );
 
   const options = new DocumentBuilder()
-    .setTitle('Disater Alert API')
-    .setDescription('Disater Alert API description')
+    .setTitle('Disaster Alert API')
+    .setDescription('Disaster Alert API description')
     .setVersion('1.0')
     .build();
 

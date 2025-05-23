@@ -4,11 +4,11 @@ import { ApiOperation } from '@nestjs/swagger';
 
 @Controller('disaster-risks')
 export class DisasterRisksController {
-    constructor(private readonly disasterRisksService: DisasterRisksService) {}
+  constructor(private readonly disasterRisksService: DisasterRisksService) {}
 
-    @ApiOperation({ summary: 'ดูข้อมูลความเสี่ยงทั้งหมด' })
-    @Get()
-    async getAllDisasterRisks(): Promise<any[]> {
-        return this.disasterRisksService.getAllDisasterRisks();
-    }
+  @ApiOperation({ summary: 'ดูข้อมูลความเสี่ยงทั้งหมด' })
+  @Get()
+  async getAllDisasterRisks(): Promise<any[]> {
+    return this.disasterRisksService.getAllDisasterRisks();
+  }
 }
