@@ -12,7 +12,15 @@ export class RegionsService {
   ) {}
 
   async create(createRegionDto: CreateRegionDto) {
-    const region = this.regionRepository.create(createRegionDto);
-    return this.regionRepository.save(region);
+    const regionData = new Region();
+    regionData.regionId = createRegionDto.regionId;
+    regionData.latitude = createRegionDto.locationCoordinates.latitude;
+    regionData.longitude = createRegionDto.locationCoordinates.longitude;
+    regionData.disasterTypes = createRegionDto.disasterTypes;
+    return this.regionRepository.save(regionData);
+  }
+
+  async findAll() {
+    return this.regionRepository.find();
   }
 }
