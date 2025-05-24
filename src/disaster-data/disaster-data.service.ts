@@ -14,4 +14,12 @@ export class DisasterDataService {
     
     return JSON.parse(weather) as WeatherResponse;
   }
+
+  async getUSGSData(): Promise<USGSData> {
+    const usgsData = await this.redisService.get(`usgsdata:latest`);
+    if (!usgsData) {
+      throw new NotFoundException('USGS data not found');
+    }
+    return JSON.parse(usgsData) as USGSData;
+  }
 }

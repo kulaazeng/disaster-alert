@@ -1,22 +1,22 @@
 import { Module } from '@nestjs/common';
+import { BullModule } from '@nestjs/bull';
 import { HttpModule } from '@nestjs/axios';
 import { RedisModule } from 'src/redis/redis.module';
-import { WeatherCron } from './weather.cron';
+import { USGSDataProcessor } from './usgsdata.processor';
+import { USGSDataCron } from './usgsdata.cron';
 import { RegionsService } from 'src/regions/regions.service';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { Region } from 'src/regions/entities/region.entity';
-import { BullModule } from '@nestjs/bull';
-import { WeatherProcessor } from './weather.processor';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
     BullModule.registerQueue({
-      name: 'weatherQueue',
+      name: 'usgsdataQueue',
     }),
     HttpModule,
     RedisModule,
     TypeOrmModule.forFeature([Region]),
   ],
-  providers: [WeatherProcessor, WeatherCron, RegionsService],
+  providers: [USGSDataProcessor, USGSDataCron, RegionsService],
 })
-export class WeatherModule {}
+export class UsgsdataModule {}
