@@ -5,19 +5,27 @@ import { HttpService } from '@nestjs/axios';
 import { ConfigService } from '@nestjs/config';
 import { Processor, Process, BullModule } from '@nestjs/bull';
 import { Job } from 'bull';
+import { Logger } from 'winston';
+import { LoggingService } from 'src/logging/logging.service';
 
 @Processor('weatherQueue')
 export class WeatherProcessor {
+  private readonly log: Logger;
   constructor(
     private readonly configService: ConfigService,
     private readonly redisService: RedisService,
     private readonly httpService: HttpService,
-  ) {}
+    private readonly loggingService: LoggingService,
+  ) {
+    this.log = this.loggingService.winstonLogger('weatherProcessor', 'debug');
+  }
 
   @Process()
   async fetchWeatherData({ data }: Job<{ lat: number; lon: number }>) {
     try {
       const { lat, lon } = data;
+
+      this.log.info(`Weather cron job started for lat: ${lat} and lon: ${lon}`);
 
       const response = await firstValueFrom(
         this.httpService.get<WeatherResponse>(
@@ -30,11 +38,8 @@ export class WeatherProcessor {
         JSON.stringify(response.data),
         60 * 15,
       );
-      
     } catch (error) {
-      console.log('--------------------------------');
-      console.log('Weather cron job failed', error);
-      console.log('--------------------------------');
+      this.log.error('Weather cron job failed', error);
     }
   }
 }

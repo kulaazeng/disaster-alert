@@ -7,6 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Region } from 'src/regions/entities/region.entity';
 import { BullModule } from '@nestjs/bull';
 import { WeatherProcessor } from './weather.processor';
+import { LoggingService } from 'src/logging/logging.service';
 
 @Module({
   imports: [
@@ -17,6 +18,6 @@ import { WeatherProcessor } from './weather.processor';
     RedisModule,
     TypeOrmModule.forFeature([Region]),
   ],
-  providers: [WeatherProcessor, WeatherCron, RegionsService],
+  providers: [WeatherProcessor, WeatherCron, RegionsService, LoggingService],
 })
 export class WeatherModule {}

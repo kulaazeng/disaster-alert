@@ -5,17 +5,26 @@ import { HttpService } from '@nestjs/axios';
 import { ConfigService } from '@nestjs/config';
 import { Processor, Process } from '@nestjs/bull';
 import { Job } from 'bull';
+import { LoggingService } from 'src/logging/logging.service';
+import { Logger } from 'winston';
 
 @Processor('usgsdataQueue')
 export class USGSDataProcessor {
+
+  private readonly log: Logger; 
+
   constructor(
     private readonly configService: ConfigService,
     private readonly redisService: RedisService,
     private readonly httpService: HttpService,
-  ) { }
+    private readonly loggingService: LoggingService,
+  ) { 
+    this.log = this.loggingService.winstonLogger('usgsdataProcessor', 'debug')
+  }
 
   @Process()
   async fetchUSGSData({ }: Job<{}>) {
+    this.log.info('USGS data cron job started');
     try {
       const response = await firstValueFrom(
         this.httpService.get<WeatherResponse>(
@@ -29,9 +38,7 @@ export class USGSDataProcessor {
         60 * 15,
       );
     } catch (error) {
-      console.log('--------------------------------');
-      console.log('USGS data cron job failed', error);
-      console.log('--------------------------------');
+      this.log.error('USGS data cron job failed', error);
     }
   }
 }

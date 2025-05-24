@@ -9,6 +9,7 @@ import { DisasterDataModule } from './disaster-data/disaster-data.module';
 import { RedisModule } from './redis/redis.module';
 import { BullModule } from '@nestjs/bull';
 import { ScheduleModule } from '@nestjs/schedule';
+import { LoggingModule } from './logging/logging.module';
 
 
 @Module({
@@ -31,6 +32,7 @@ import { ScheduleModule } from '@nestjs/schedule';
       inject: [ConfigService],
     }),
     ScheduleModule.forRoot(),
+    LoggingModule,
     RedisModule,
     RegionsModule,
     AlertSettingsModule,

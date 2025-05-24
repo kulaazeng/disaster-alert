@@ -7,6 +7,7 @@ import { USGSDataCron } from './usgsdata.cron';
 import { RegionsService } from 'src/regions/regions.service';
 import { Region } from 'src/regions/entities/region.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { LoggingService } from 'src/logging/logging.service';
 
 @Module({
   imports: [
@@ -17,6 +18,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     RedisModule,
     TypeOrmModule.forFeature([Region]),
   ],
-  providers: [USGSDataProcessor, USGSDataCron, RegionsService],
+  providers: [USGSDataProcessor, USGSDataCron, RegionsService, LoggingService],
 })
 export class UsgsdataModule {}
