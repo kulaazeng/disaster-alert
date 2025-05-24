@@ -9,7 +9,7 @@ export class USGSDataCron {
     @InjectQueue('usgsdataQueue') private usgsdataQueue: Queue,
   ) {}
 
-  @Cron('0 */1 * * * *') //ถ้ามี 50 region จะ cron ได้สูสุดประมาณ ทุก 3 นาที
+  @Cron('0 */3 * * * *') //ถ้ามี 50 region จะ cron ได้สูสุดประมาณ ทุก 3 นาที
   async handleUSGSDataFetch() {
     console.log('--------------------------------');
     console.log('USGS data cron job started');

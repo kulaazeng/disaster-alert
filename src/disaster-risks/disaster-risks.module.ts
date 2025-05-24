@@ -8,6 +8,7 @@ import { WeatherModule } from 'src/disaster-data/weather/weather.module';
 import { DisasterDataService } from 'src/disaster-data/disaster-data.service';
 import { AlertSettingsService } from 'src/alert-settings/alert-settings.service';
 import { AlertSetting } from 'src/alert-settings/entities/alert-setting.entity';
+import { DisasterRisksCron } from './disaster.risks.cron';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Region, AlertSetting]), WeatherModule],
@@ -16,6 +17,7 @@ import { AlertSetting } from 'src/alert-settings/entities/alert-setting.entity';
     RegionsService,
     DisasterDataService,
     AlertSettingsService,
+    DisasterRisksCron
   ],
   controllers: [DisasterRisksController],
 })

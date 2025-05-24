@@ -11,7 +11,7 @@ export class WeatherCron {
     @InjectQueue('weatherQueue') private weatherQueue: Queue,
   ) { }
 
-  @Cron('0 */1 * * * *')   //ถ้ามี 50 region จะ cron ได้สูสุดประมาณ ทุก 3 นาที
+  @Cron('0 */3 * * * *')   //ถ้ามี 50 region จะ cron ได้สูสุดประมาณ ทุก 3 นาที
   async handleWeatherFetch() {
     console.log('--------------------------------');
     console.log('Weather cron job started');

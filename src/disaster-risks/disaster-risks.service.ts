@@ -5,6 +5,7 @@ import { DisasterDataService } from 'src/disaster-data/disaster-data.service';
 import { RegionsService } from 'src/regions/regions.service';
 import { Region } from 'src/regions/entities/region.entity';
 import { AlertSettingsService } from 'src/alert-settings/alert-settings.service';
+import { RedisService } from 'src/redis/redis.service';
 
 @Injectable()
 export class DisasterRisksService {
@@ -12,9 +13,18 @@ export class DisasterRisksService {
     private readonly regionsService: RegionsService,
     private readonly alertSettingsService: AlertSettingsService,
     private readonly weatherService: DisasterDataService,
+    private readonly redisService: RedisService,
   ) {}
 
   async getAllDisasterRisks(): Promise<DisasterRisksRes[]> {
+    const disasterRisksData = await this.redisService.get('disasterRisks');
+    if (disasterRisksData) {
+      return JSON.parse(disasterRisksData);
+    }
+    return this.calculateDisasterRisks();
+  }
+
+  async calculateDisasterRisks(): Promise<DisasterRisksRes[]> {
     const disasterRisks: DisasterRisksRes[] = [];
 
     //ดึงข้อมูล region ทั้งหมด
