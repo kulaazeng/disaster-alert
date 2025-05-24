@@ -33,6 +33,7 @@ export class WeatherProcessor {
         ),
       );
 
+      this.log.info(`Weather data fetched successfully for response`, response.data);
 
       await this.redisService.set(
         `weather:${lat}:${lon}`,
