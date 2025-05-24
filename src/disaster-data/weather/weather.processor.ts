@@ -19,10 +19,11 @@ export class WeatherProcessor {
     try {
       const { lat, lon } = data;
       console.log(lat, lon);
-      const weatherData = await this.redisService.get(`weather:${lat}:${lon}`);
-      if (weatherData) {
-        return JSON.parse(weatherData) as WeatherResponse;
-      }
+    //   const weatherData = await this.redisService.get(`weather:${lat}:${lon}`);
+    //   if (weatherData) {
+    //     return JSON.parse(weatherData) as WeatherResponse;
+    //   }
+
       const response = await firstValueFrom(
         this.httpService.get<WeatherResponse>(
           `${this.configService.get<string>('OPENWEATHER_API_URL')}?lat=${lat}&lon=${lon}&appid=${this.configService.get<string>('OPENWEATHER_API_KEY')}`,

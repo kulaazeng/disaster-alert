@@ -17,10 +17,10 @@ export class USGSDataProcessor {
   @Process()
   async fetchUSGSData({ }: Job<{}>) {
     try {
-      const usgsData = await this.redisService.get(`usgsdata:latest`);
-      if (usgsData) {
-        return JSON.parse(usgsData) as USGSData;
-      }
+      // const usgsData = await this.redisService.get(`usgsdata:latest`);
+      // if (usgsData) {
+      //   return JSON.parse(usgsData) as USGSData;
+      // }
       const response = await firstValueFrom(
         this.httpService.get<WeatherResponse>(
           `${this.configService.get<string>('USGS_API_URL')}`,

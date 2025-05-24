@@ -8,12 +8,14 @@ import { Region } from './entities/region.entity';
 import { Repository } from 'typeorm';
 import { CreateRegionDto } from './dto/create-regions.dto';
 import { UpdateRegionDto } from './dto/update-regions.dto';
+import { RedisService } from 'src/redis/redis.service';
 
 @Injectable()
 export class RegionsService {
   constructor(
     @InjectRepository(Region)
     private readonly regionRepository: Repository<Region>,
+    private readonly redisService: RedisService,
   ) {}
 
   async create(createRegionDto: CreateRegionDto) {
@@ -22,11 +24,27 @@ export class RegionsService {
     regionData.latitude = createRegionDto.locationCoordinates.latitude;
     regionData.longitude = createRegionDto.locationCoordinates.longitude;
     regionData.disasterTypes = createRegionDto.disasterTypes;
-    return this.regionRepository.save(regionData);
+
+    const region = await this.regionRepository.save(regionData);
+    await this.redisService.del('regions');
+
+    return region;
   }
 
   async findAll() {
-    return this.regionRepository.find();
+    const regionsData = await this.redisService.get('regions');
+    if (regionsData) {
+      return JSON.parse(regionsData);
+    }
+
+    const regions = await this.regionRepository.find();
+
+    await this.redisService.set(
+      'regions',
+      JSON.stringify(regions),
+      60 * 60 * 24,
+    );
+    return regions;
   }
 
   async update(id: string, updateRegionDto: UpdateRegionDto) {
@@ -41,6 +59,10 @@ export class RegionsService {
     regionData.latitude = updateRegionDto.locationCoordinates.latitude;
     regionData.longitude = updateRegionDto.locationCoordinates.longitude;
     regionData.disasterTypes = updateRegionDto.disasterTypes;
-    return this.regionRepository.save(regionData);
+
+    const region = await this.regionRepository.save(regionData);
+    await this.redisService.del('regions');
+
+    return region;
   }
 }
