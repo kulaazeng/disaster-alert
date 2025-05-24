@@ -3,7 +3,7 @@ import { RedisService } from 'src/redis/redis.service';
 import { firstValueFrom } from 'rxjs';
 import { HttpService } from '@nestjs/axios';
 import { ConfigService } from '@nestjs/config';
-import { Processor, Process, BullModule } from '@nestjs/bull';
+import { Processor, Process } from '@nestjs/bull';
 import { Job } from 'bull';
 import { Logger } from 'winston';
 import { LoggingService } from 'src/logging/logging.service';
@@ -32,6 +32,7 @@ export class WeatherProcessor {
           `${this.configService.get<string>('OPENWEATHER_API_URL')}?lat=${lat}&lon=${lon}&appid=${this.configService.get<string>('OPENWEATHER_API_KEY')}`,
         ),
       );
+
 
       await this.redisService.set(
         `weather:${lat}:${lon}`,

@@ -32,6 +32,7 @@ export class USGSDataProcessor {
         ),
       );
 
+
       await this.redisService.set(
         `usgsdata:latest`,
         JSON.stringify(response.data),

@@ -6,15 +6,22 @@ import { RegionsService } from 'src/regions/regions.service';
 import { Region } from 'src/regions/entities/region.entity';
 import { AlertSettingsService } from 'src/alert-settings/alert-settings.service';
 import { RedisService } from 'src/redis/redis.service';
+import { LoggingService } from 'src/logging/logging.service';
+import { Logger } from 'winston';
 
 @Injectable()
 export class DisasterRisksService {
+  private readonly log: Logger;
   constructor(
     private readonly regionsService: RegionsService,
     private readonly alertSettingsService: AlertSettingsService,
     private readonly weatherService: DisasterDataService,
     private readonly redisService: RedisService,
-  ) {}
+    private readonly loggingService: LoggingService,
+  ) {
+    this.log = this.loggingService.winstonLogger('disasterRisksService', 'debug');
+  }
+
 
   async getAllDisasterRisks(): Promise<DisasterRisksRes[]> {
     const disasterRisksData = await this.redisService.get('disasterRisks');
@@ -102,7 +109,11 @@ export class DisasterRisksService {
     //ตรวจสอบว่ามี alert-setting หรือไม่
     if (!alertSetting) return false;
     //ตรวจสอบว่าความเสี่ยงมากกว่า thresholdScore หรือไม่ ถ้าใช่ จะส่งข้อมูลกลับเป็น true และใช้ส่ง alert notification
-    return riskScore >= alertSetting?.thresholdScore;
+    if (riskScore >= alertSetting?.thresholdScore) {
+      this.log.info(`แจ้งเตือนสำหรับ region: ${region.regionId} และ disaster type: ${disasterType} ด้วย risk score: ${riskScore} และ threshold score: ${alertSetting?.thresholdScore}`);
+      return true;
+    }
+    return false;
   }
 
   //คำนวณความเสี่ยงของแต่ละ disaster type

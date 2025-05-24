@@ -3,19 +3,23 @@ import { RegionsService } from 'src/regions/regions.service';
 import { Cron } from '@nestjs/schedule';
 import { Queue } from 'bull';
 import { InjectQueue } from '@nestjs/bull';
+import { Logger } from 'winston';
+import { LoggingService } from 'src/logging/logging.service';
 
 @Injectable()
 export class WeatherCron {
+  private readonly log: Logger;
   constructor(
     private regionService: RegionsService,
     @InjectQueue('weatherQueue') private weatherQueue: Queue,
-  ) { }
+    private readonly loggingService: LoggingService,
+  ) { 
+    this.log = this.loggingService.winstonLogger('weatherCron', 'debug');
+  }
 
   @Cron('0 */3 * * * *')   //ถ้ามี 50 region จะ cron ได้สูสุดประมาณ ทุก 3 นาที
   async handleWeatherFetch() {
-    console.log('--------------------------------');
-    console.log('Weather cron job started');
-    console.log('--------------------------------');
+    this.log.info('Weather cron job started');
 
     const regions = await this.regionService.findAll();
 
