@@ -19,7 +19,12 @@ export class DisasterRisksCron {
   @Cron('0 */3 * * * *') //ถ้ามี 50 region จะ cron ได้สูสุดประมาณ ทุก 3 นาที
   async calculateDisasterRisks() {
     this.log.info('Disaster risks cron job started');
-    const disasterRisks = await this.disasterRisksService.calculateDisasterRisks();
-    await this.redisService.set('disasterRisks', JSON.stringify(disasterRisks), 60 * 15);
+    const disasterRisks =
+      await this.disasterRisksService.calculateDisasterRisks();
+    await this.redisService.set(
+      'disasterRisks',
+      JSON.stringify(disasterRisks),
+      60 * 15,
+    );
   }
 }

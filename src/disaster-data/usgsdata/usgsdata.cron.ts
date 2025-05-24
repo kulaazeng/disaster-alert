@@ -7,7 +7,7 @@ import { LoggingService } from 'src/logging/logging.service';
 
 @Injectable()
 export class USGSDataCron {
-    private readonly log: Logger;
+  private readonly log: Logger;
   constructor(
     @InjectQueue('usgsdataQueue') private usgsdataQueue: Queue,
     private readonly loggingService: LoggingService,

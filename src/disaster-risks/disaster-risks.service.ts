@@ -19,9 +19,11 @@ export class DisasterRisksService {
     private readonly redisService: RedisService,
     private readonly loggingService: LoggingService,
   ) {
-    this.log = this.loggingService.winstonLogger('disasterRisksService', 'debug');
+    this.log = this.loggingService.winstonLogger(
+      'disasterRisksService',
+      'debug',
+    );
   }
-
 
   async getAllDisasterRisks(): Promise<DisasterRisksRes[]> {
     const disasterRisksData = await this.redisService.get('disasterRisks');
@@ -69,7 +71,7 @@ export class DisasterRisksService {
         //สร้างข้อมูลความเสี่ยงของแต่ละ disaster type ของแต่ละ region
         const disasterRisksRes: DisasterRisksRes = {
           //ข้อมูล region R1, R2, R3, R4, R5
-          regionId: region.regionId,
+          regionId: region?.regionId,
           //ข้อมูล disaster type ที่มีอยู่ ของแต่ละ region
           disasterType: disasterType,
           //ความเสี่ยงของแต่ละ disaster type
@@ -110,7 +112,9 @@ export class DisasterRisksService {
     if (!alertSetting) return false;
     //ตรวจสอบว่าความเสี่ยงมากกว่า thresholdScore หรือไม่ ถ้าใช่ จะส่งข้อมูลกลับเป็น true และใช้ส่ง alert notification
     if (riskScore >= alertSetting?.thresholdScore) {
-      this.log.info(`แจ้งเตือนสำหรับ region: ${region.regionId} และ disaster type: ${disasterType} ด้วย risk score: ${riskScore} และ threshold score: ${alertSetting?.thresholdScore}`);
+      this.log.info(
+        `แจ้งเตือนสำหรับ region: ${region.regionId} และ disaster type: ${disasterType} ด้วย risk score: ${riskScore} และ threshold score: ${alertSetting?.thresholdScore}`,
+      );
       return true;
     }
     return false;
@@ -172,7 +176,7 @@ export class DisasterRisksService {
     return score;
   }
 
-  //คำนวณคะแนนไฟป่า 
+  //คำนวณคะแนนไฟป่า
   calculateWildfireScore(weather: WeatherResponse): number {
     let score = 0;
 
@@ -205,7 +209,6 @@ export class DisasterRisksService {
     //คำนวณระยะห่างของ ลองจิจูด
     const dLon = toRad(lon2 - lon1);
 
-
     const a =
       Math.sin(dLat / 2) ** 2 +
       Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) ** 2;
@@ -224,7 +227,7 @@ export class DisasterRisksService {
     const magScore = Math.min(magnitude * 10, 100); // ปรับ scale
     //คำนวณคะแนนของระยะทางของแผ่นดินไหว
     const distanceFactor = Math.max(0, 1 - distanceKm / 500); // ถ้าไกลกว่า 500 กม. → แทบไม่มีผล
-    //คำนวณคะแนนของความลึกของแผ่นดินไหว 
+    //คำนวณคะแนนของความลึกของแผ่นดินไหว
     const depthFactor = depthKm < 70 ? 1 : 0.7; // ตื้น = 1, ลึก = 0.7
 
     //คำนวณคะแนนของแผ่นดินไหว

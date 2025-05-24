@@ -11,7 +11,7 @@ export class DisasterDataService {
     if (!weather) {
       throw new NotFoundException('Weather not found');
     }
-    
+
     return JSON.parse(weather) as WeatherResponse;
   }
 

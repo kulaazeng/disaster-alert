@@ -11,25 +11,30 @@ export class AlertSettingsService {
     @InjectRepository(AlertSetting)
     private alertSettingRepository: Repository<AlertSetting>,
     private readonly redisService: RedisService,
-  ) { }
+  ) {}
 
   async createAlertSetting(
     alertSetting: CreateAlertSettingDto,
   ): Promise<AlertSetting> {
     const newAlertSetting = this.alertSettingRepository.create(alertSetting);
-    const alertSettingData = await this.alertSettingRepository.save(newAlertSetting);
+    const alertSettingData =
+      await this.alertSettingRepository.save(newAlertSetting);
     await this.redisService.del('alertSettings');
-    return alertSettingData;   
+    return alertSettingData;
   }
 
   async getAllAlertSettings(): Promise<AlertSetting[]> {
     const alertSettingsData = await this.redisService.get('alertSettings');
     if (alertSettingsData) {
-      return JSON.parse(alertSettingsData);
+      return JSON.parse(alertSettingsData) as AlertSetting[];
     }
 
     const alertSettings = await this.alertSettingRepository.find();
-    await this.redisService.set('alertSettings', JSON.stringify(alertSettings), 60 * 15);
+    await this.redisService.set(
+      'alertSettings',
+      JSON.stringify(alertSettings),
+      60 * 15,
+    );
     return alertSettings;
   }
 
@@ -39,7 +44,7 @@ export class AlertSettingsService {
     if (alertSettingsData) {
       return JSON.parse(alertSettingsData).filter(
         (alertSetting: AlertSetting) => alertSetting.regionId === regionId,
-      );
+      ) as AlertSetting[];
     }
 
     //ดึงข้อมูล alert settings จาก database

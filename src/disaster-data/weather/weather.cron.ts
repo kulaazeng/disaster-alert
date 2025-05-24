@@ -13,11 +13,11 @@ export class WeatherCron {
     private regionService: RegionsService,
     @InjectQueue('weatherQueue') private weatherQueue: Queue,
     private readonly loggingService: LoggingService,
-  ) { 
+  ) {
     this.log = this.loggingService.winstonLogger('weatherCron', 'debug');
   }
 
-  @Cron('0 */3 * * * *')   //ถ้ามี 50 region จะ cron ได้สูสุดประมาณ ทุก 3 นาที
+  @Cron('0 */3 * * * *') //ถ้ามี 50 region จะ cron ได้สูสุดประมาณ ทุก 3 นาที
   async handleWeatherFetch() {
     this.log.info('Weather cron job started');
 

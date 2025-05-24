@@ -39,11 +39,7 @@ export class RegionsService {
 
     const regions = await this.regionRepository.find();
 
-    await this.redisService.set(
-      'regions',
-      JSON.stringify(regions),
-      60 * 15,
-    );
+    await this.redisService.set('regions', JSON.stringify(regions), 60 * 15);
     return regions;
   }
 

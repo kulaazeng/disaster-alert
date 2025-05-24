@@ -10,20 +10,19 @@ import { Logger } from 'winston';
 
 @Processor('usgsdataQueue')
 export class USGSDataProcessor {
-
-  private readonly log: Logger; 
+  private readonly log: Logger;
 
   constructor(
     private readonly configService: ConfigService,
     private readonly redisService: RedisService,
     private readonly httpService: HttpService,
     private readonly loggingService: LoggingService,
-  ) { 
-    this.log = this.loggingService.winstonLogger('usgsdataProcessor', 'debug')
+  ) {
+    this.log = this.loggingService.winstonLogger('usgsdataProcessor', 'debug');
   }
 
   @Process()
-  async fetchUSGSData({ }: Job<{}>) {
+  async fetchUSGSData({}: Job<{}>) {
     this.log.info('USGS data cron job started');
     try {
       const response = await firstValueFrom(
@@ -32,8 +31,11 @@ export class USGSDataProcessor {
         ),
       );
 
-      this.log.info(`USGS data fetched successfully for response`, response.data);
-      
+      this.log.info(
+        `USGS data fetched successfully for response`,
+        response.data,
+      );
+
       await this.redisService.set(
         `usgsdata:latest`,
         JSON.stringify(response.data),
