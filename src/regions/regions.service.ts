@@ -42,7 +42,7 @@ export class RegionsService {
     await this.redisService.set(
       'regions',
       JSON.stringify(regions),
-      60 * 60 * 24,
+      60 * 15,
     );
     return regions;
   }

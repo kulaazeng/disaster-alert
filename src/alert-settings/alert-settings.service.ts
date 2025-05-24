@@ -34,8 +34,22 @@ export class AlertSettingsService {
   }
 
   async findByRegion(regionId: string): Promise<AlertSetting[]> {
-    return this.alertSettingRepository.find({
-      where: { regionId },
-    });
+    //ดึงข้อมูล alert settings จาก redis
+    const alertSettingsData = await this.redisService.get('alertSettings');
+    if (alertSettingsData) {
+      return JSON.parse(alertSettingsData).filter(
+        (alertSetting: AlertSetting) => alertSetting.regionId === regionId,
+      );
+    }
+
+    //ดึงข้อมูล alert settings จาก database
+    const alertSettings = await this.getAllAlertSettings();
+
+    //ค้นหา alert settings ของแต่ละ region ด้วย regionId
+    const alertSettingsByRegion = alertSettings.filter(
+      (alertSetting: AlertSetting) => alertSetting.regionId === regionId,
+    );
+
+    return alertSettingsByRegion;
   }
 }
