@@ -53,6 +53,9 @@ importers:
       class-validator:
         specifier: ^0.14.2
         version: 0.14.2
+      elastic-apm-node:
+        specifier: ^4.13.0
+        version: 4.13.0
       ioredis:
         specifier: ^5.4.2
         version: 5.6.1
@@ -1618,6 +1621,10 @@ packages:
     resolution: {integrity: sha512-6/mh1E2u2YgEsCHdY0Yx5oW+61gZU+1vXaoiHHrpKeuRNNgFvS+/jrwHiQhB5apAf5oB7UB7E19ol2R2LKH8hQ==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
 
+  abort-controller@3.0.0:
+    resolution: {integrity: sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg==}
+    engines: {node: '>=6.5'}
+
   accepts@2.0.0:
     resolution: {integrity: sha512-5cvg6CtKwfgdmVqY1WIiXKc3Q1bkRqGLi+2W/6ao+6Y7gu/RCwRuAhGEzh5B4KlszSuTLgZYuqFqo5bImjNKng==}
     engines: {node: '>= 0.6'}
@@ -1625,6 +1632,11 @@ packages:
   acorn-import-assertions@1.9.0:
     resolution: {integrity: sha512-cmMwop9x+8KFhxvKrKfPYmN6/pKTYYHBqLa0DfvVZcKMJWNyWLnaqND7dx/qn66R7ewM1UX5XMaDVP5wlVTaVA==}
     deprecated: package has been renamed to acorn-import-attributes
+    peerDependencies:
+      acorn: ^8
+
+  acorn-import-attributes@1.9.5:
+    resolution: {integrity: sha512-n02Vykv5uA3eHGM/Z2dQrcD56kL8TyDb2p1+0P83PClMnC/nc+anbQRhIOWnSq4Ke/KvDPrY3C9hDtC/A3eHnQ==}
     peerDependencies:
       acorn: ^8
 
@@ -1829,6 +1841,9 @@ packages:
   basic-auth@2.0.1:
     resolution: {integrity: sha512-NF+epuEdnUYVlGuhaxbbq+dvJttwLnGY+YixlXlME5KpQ5W3CnXA5cVTneY3SPbPDRkcjMbifrwmFYcClgOZeg==}
     engines: {node: '>= 0.8'}
+
+  bignumber.js@9.3.0:
+    resolution: {integrity: sha512-EM7aMFTXbptt/wZdMlBv2t8IViwQL+h6SLHosp8Yf0dqJMTnY6iL32opnAB6kAdL0SZPuvcAzFr31o0c/R3/RA==}
 
   bin-version-check@5.1.0:
     resolution: {integrity: sha512-bYsvMqJ8yNGILLz1KP9zKLzQ6YpljV3ln1gqhuLkUtyfGi3qXKGuK2p+U4NAvjVFzDFiBBtOpCOSFNuYYEGZ5g==}
@@ -2355,6 +2370,10 @@ packages:
     resolution: {integrity: sha512-NVFthDcoBOpTwtppF7b+BIeIu4Xon3RBNpddIaJv+DtjL6Q61x4j7ClYdiXjv3XKgyp7yUlOnLjU6PY/EYXwLQ==}
     engines: {node: '>=8.6.0'}
 
+  elastic-apm-node@4.13.0:
+    resolution: {integrity: sha512-zb0u1uSDEJCU9IRTzfz7BAz5bgMAJb8iTxGhqiF/x/JEdd4qn53ddIrq0bMPm/eIMA37rIjuaUurZpcbXy6Rvw==}
+    engines: {node: '>=14.17.0'}
+
   electron-to-chromium@1.5.157:
     resolution: {integrity: sha512-/0ybgsQd1muo8QlnuTpKwtl0oX5YMlUGbm8xyqgDU00motRkKFFbUJySAQBWcY79rVqNLWIWa87BGVGClwAB2w==}
 
@@ -2536,6 +2555,10 @@ packages:
   etag@1.8.1:
     resolution: {integrity: sha512-aIL5Fx7mawVa300al2BnEE4iNvo1qETxLrPI/o05L7z6go7fCw1J6EQmbK4FmJ2AS7kgVF/KEZWufBfdClMcPg==}
     engines: {node: '>= 0.6'}
+
+  event-target-shim@5.0.1:
+    resolution: {integrity: sha512-i/2XbnSz/uxRCU6+NdVJgKWDTM427+MqYbkQzD321DuCQJUqOuJKIA0IM2+W2xtYHdKOmZ4dR6fExsd4SXL+WQ==}
+    engines: {node: '>=6'}
 
   events@3.3.0:
     resolution: {integrity: sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==}
@@ -2948,6 +2971,9 @@ packages:
     resolution: {integrity: sha512-TR3KfrTZTYLPB6jUjfx6MF9WcWrHL9su5TObK4ZkYgBdWKPOFoSoQIdEuTuR82pmtxH2spWG9h6etwfr1pLBqQ==}
     engines: {node: '>=6'}
 
+  import-in-the-middle@1.13.1:
+    resolution: {integrity: sha512-k2V9wNm9B+ysuelDTHjI9d5KPc4l8zAZTGqj+pcynvWkypZd857ryzN8jNC7Pg2YZXNMJcHRPpaDyCBbNyVRpA==}
+
   import-in-the-middle@1.4.2:
     resolution: {integrity: sha512-9WOz1Yh/cvO/p69sxRmhyQwrIGGSp7EIdcb+fFNVi7CzQGQB8U1/1XrKVSbEd/GNOAeM0peJtmi7+qphe7NvAw==}
 
@@ -3285,6 +3311,9 @@ packages:
     engines: {node: '>=6'}
     hasBin: true
 
+  json-bigint@1.0.0:
+    resolution: {integrity: sha512-SiPv/8VpZuWbvLSMtTDU8hEfrZWg/mH/nV/b4o0CYbSxu1UIQPLdwKOCIyLQX+VIPO5vrLX3i8qtqFyhdPSUSQ==}
+
   json-bignum@0.0.3:
     resolution: {integrity: sha512-2WHyXj3OfHSgNyuzDbSxI1w2jgw5gkWSWhS7Qg4bWXx1nLk3jnbwfUeS0PSba3IzpTUWdHxBieELUzXRjQB2zg==}
     engines: {node: '>=0.8'}
@@ -3426,6 +3455,10 @@ packages:
   lowercase-keys@3.0.0:
     resolution: {integrity: sha512-ozCC6gdQ+glXOQsveKD0YsDy8DSQFjDTz4zyzEHNV5+JP5D62LmfDZ6o1cycFx9ouG940M5dE8C8CTewdj2YWQ==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+
+  lru-cache@10.2.0:
+    resolution: {integrity: sha512-2bIM8x+VAf6JT4bKAljS1qUWgMsqZRPGJS6FSahIMPVvctcNhyVp7AJu7quxOW9jwkryBReKZY5tY5JYv2n/7Q==}
+    engines: {node: 14 || >=16.14}
 
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
@@ -3810,6 +3843,10 @@ packages:
     resolution: {integrity: sha512-8u/hfXFRBD1O0hPUjioLhoWFHRmt6tKA4/vZPyckBr18l1KE9uHrFaFaUi8MDRTpi4uak2goyPTSNJLXX2k2Hw==}
     engines: {node: '>= 0.4'}
 
+  on-exit-leak-free@2.1.2:
+    resolution: {integrity: sha512-0eJJY6hXLGf1udHwfNftBqH+g73EU4B504nZeKpz1sYRKafAghwxEJunB2O7rDZkL4PGfsMVnTXZ2EjibbqcsA==}
+    engines: {node: '>=14.0.0'}
+
   on-finished@2.4.1:
     resolution: {integrity: sha512-oVlzkg3ENAhCk2zdv7IJwd/QUD4z2RxRwpkcGY8psCVcCYZNq4wYnVWALHM+brtuJjePWiYF/ClmuDr8Ch5+kg==}
     engines: {node: '>= 0.8'}
@@ -4007,11 +4044,21 @@ packages:
     resolution: {integrity: sha512-M7BAV6Rlcy5u+m6oPhAPFgJTzAioX/6B0DxyvDlo9l8+T3nLKbrczg2WLUyzd45L8RqfUMyGPzekbMvX2Ldkwg==}
     engines: {node: '>=12'}
 
+  pino-abstract-transport@1.2.0:
+    resolution: {integrity: sha512-Guhh8EZfPCfH+PMXAb6rKOjGQEoy0xlAIn+irODG5kgfYV+BQ0rGYYWTIel3P5mmyXqkYkPmdIkywsn6QKUR1Q==}
+
   pino-std-serializers@3.2.0:
     resolution: {integrity: sha512-EqX4pwDPrt3MuOAAUBMU0Tk5kR/YcCM5fNPEzgCO2zJ5HfX0vbiH9HbJglnyeQsN96Kznae6MWD47pZB5avTrg==}
 
+  pino-std-serializers@6.2.2:
+    resolution: {integrity: sha512-cHjPPsE+vhj/tnhCy/wiMh3M3z3h/j15zHQX+S9GkTBgqJuTuJzYJ4gUyACLhDaJ7kk9ba9iRDmbH2tJU03OiA==}
+
   pino@6.14.0:
     resolution: {integrity: sha512-iuhEDel3Z3hF9Jfe44DPXR8l07bhjuFY3GMHIXbjnY9XcafbyDDwl2sN2vw2GjMPf5Nkoe+OFao7ffn9SXaKDg==}
+    hasBin: true
+
+  pino@8.21.0:
+    resolution: {integrity: sha512-ip4qdzjkAyDDZklUaZkcRFb2iA118H9SgRh8yzTkSQK8HilsOJF7rSY8HoW5+I0M46AZgX/pxbprf2vvzQCE0Q==}
     hasBin: true
 
   pirates@4.0.7:
@@ -4075,6 +4122,13 @@ packages:
 
   process-warning@1.0.0:
     resolution: {integrity: sha512-du4wfLyj4yCZq1VupnVSZmRsPJsNuxoDQFdCFHLaYiEbFBD7QE0a+I4D7hOxrVnh78QE/YipFAj9lXHiXocV+Q==}
+
+  process-warning@3.0.0:
+    resolution: {integrity: sha512-mqn0kFRl0EoqhnL0GQ0veqFHyIN1yig9RHh/InzORTUiZHFRAur+aMtRkELNwGs9aNwKS6tg/An4NYBPGwvtzQ==}
+
+  process@0.11.10:
+    resolution: {integrity: sha512-cdGef/drWFoydD1JsMzuFf8100nZl+GT+yacc2bEced5f9Rjk4z+WtFUTBu9PhOi9j/jfmBPu0mMEY4wIdAF8A==}
+    engines: {node: '>= 0.6.0'}
 
   promise@7.3.1:
     resolution: {integrity: sha512-nolQXZ/4L+bP/UGlkfaIujX9BKxGwmQ9OT4mOt5yvy8iK1h3wqTEJCijzGANTCCl9nWjY41juyAn2K3Q1hLLTg==}
@@ -4197,6 +4251,10 @@ packages:
     resolution: {integrity: sha512-9u/sniCrY3D5WdsERHzHE4G2YCXqoG5FTHUiCC4SIbr6XcLZBY05ya9EKjYek9O5xOAwjGq+1JdGBAS7Q9ScoA==}
     engines: {node: '>= 6'}
 
+  readable-stream@4.7.0:
+    resolution: {integrity: sha512-oIGGmcpTLwPga8Bn6/Z75SVaH1z5dUut2ibSyAMVhmUggWpmDn2dapB0n7f8nwaSiRtepAsfJyfXIO5DCVAODg==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+
   readdirp@3.6.0:
     resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}
     engines: {node: '>=8.10.0'}
@@ -4204,6 +4262,10 @@ packages:
   readdirp@4.1.2:
     resolution: {integrity: sha512-GDhwkLfywWL2s6vEjyhri+eXmfH6j1L7JE27WhqLeYzoh/A3DBaYGEj2H/HFZCn/kMfim73FXxEJTw06WtxQwg==}
     engines: {node: '>= 14.18.0'}
+
+  real-require@0.2.0:
+    resolution: {integrity: sha512-57frrGM/OCTLqLOAh0mhVA9VBMHd+9U7Zb2THMGdBUoZVOtGbJzjxsYGDJ3A9AYYCP4hn6y1TVbaOfzWtm5GFg==}
+    engines: {node: '>= 12.13.0'}
 
   redis-errors@1.2.0:
     resolution: {integrity: sha512-1qny3OExCf0UvUV/5wpYKf2YwPcOqXzkwKKSmKHiE6ZMQs5heeE/c8eXK+PNllPvmjgAbfnsbpkGZWy8cBpn9w==}
@@ -4431,6 +4493,9 @@ packages:
   sonic-boom@1.4.1:
     resolution: {integrity: sha512-LRHh/A8tpW7ru89lrlkU4AszXt1dbwSjVWguGrmlxE7tawVmDBlI1PILMkXAxJTwqhgsEeTHzj36D5CmHgQmNg==}
 
+  sonic-boom@3.8.1:
+    resolution: {integrity: sha512-y4Z8LCDBuum+PBP3lSV7RHrXscqksve/bi0as7mhwVnBW+/wUqKT/2Kb7um8yqcFy0duYbbPxzt89Zy2nOCaxg==}
+
   sort-keys-length@1.0.1:
     resolution: {integrity: sha512-GRbEOUqCxemTAk/b32F2xa8wDTs+Z1QHOkbhJDQTvv/6G3ZkbJ+frYWsTcc7cBB3Fu4wy4XlLCuNtJuMn7Gsvw==}
     engines: {node: '>=0.10.0'}
@@ -4631,6 +4696,9 @@ packages:
 
   text-hex@1.0.0:
     resolution: {integrity: sha512-uuVGNWzgJ4yhRaNSiubPY7OjISw4sw4E5Uv0wbjp+OzcbmVU/rsT8ujgcXJhn9ypzsgr5vlzpPqP+MBBKcGvbg==}
+
+  thread-stream@2.7.0:
+    resolution: {integrity: sha512-qQiRWsU/wvNolI6tbbCKd9iKaTnCXsTwVxhhKM6nctPdujTyztjlbUkUTUymidWcMnZ5pWR0ej4a0tjsW021vw==}
 
   through@2.3.8:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
@@ -5384,13 +5452,11 @@ snapshots:
       enabled: 2.0.0
       kuler: 2.0.0
 
-  '@elastic/ecs-helpers@2.1.1':
-    optional: true
+  '@elastic/ecs-helpers@2.1.1': {}
 
   '@elastic/ecs-pino-format@1.5.0':
     dependencies:
       '@elastic/ecs-helpers': 2.1.1
-    optional: true
 
   '@elastic/elasticsearch@8.18.2':
     dependencies:
@@ -6103,24 +6169,20 @@ snapshots:
     dependencies:
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/semantic-conventions': 1.28.0
-    optional: true
 
   '@opentelemetry/resources@1.30.1(@opentelemetry/api@1.9.0)':
     dependencies:
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/core': 1.30.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.28.0
-    optional: true
 
   '@opentelemetry/sdk-metrics@1.30.1(@opentelemetry/api@1.9.0)':
     dependencies:
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/core': 1.30.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/resources': 1.30.1(@opentelemetry/api@1.9.0)
-    optional: true
 
-  '@opentelemetry/semantic-conventions@1.28.0':
-    optional: true
+  '@opentelemetry/semantic-conventions@1.28.0': {}
 
   '@paralleldrive/cuid2@2.2.2':
     dependencies:
@@ -6741,6 +6803,10 @@ snapshots:
   abbrev@2.0.0:
     optional: true
 
+  abort-controller@3.0.0:
+    dependencies:
+      event-target-shim: 5.0.1
+
   accepts@2.0.0:
     dependencies:
       mime-types: 3.0.1
@@ -6750,6 +6816,10 @@ snapshots:
     dependencies:
       acorn: 8.14.1
     optional: true
+
+  acorn-import-attributes@1.9.5(acorn@8.14.1):
+    dependencies:
+      acorn: 8.14.1
 
   acorn-jsx@5.3.2(acorn@8.14.1):
     dependencies:
@@ -6764,13 +6834,11 @@ snapshots:
 
   acorn@8.14.1: {}
 
-  after-all-results@2.0.0:
-    optional: true
+  after-all-results@2.0.0: {}
 
   agentkeepalive@4.6.0:
     dependencies:
       humanize-ms: 1.2.1
-    optional: true
 
   ajv-formats@2.1.1(ajv@8.17.1):
     optionalDependencies:
@@ -6879,17 +6947,14 @@ snapshots:
   async-value-promise@1.1.1:
     dependencies:
       async-value: 1.2.2
-    optional: true
 
-  async-value@1.2.2:
-    optional: true
+  async-value@1.2.2: {}
 
   async@3.2.6: {}
 
   asynckit@0.4.0: {}
 
-  atomic-sleep@1.0.0:
-    optional: true
+  atomic-sleep@1.0.0: {}
 
   axios@1.9.0:
     dependencies:
@@ -6971,7 +7036,8 @@ snapshots:
   basic-auth@2.0.1:
     dependencies:
       safe-buffer: 5.1.2
-    optional: true
+
+  bignumber.js@9.3.0: {}
 
   bin-version-check@5.1.0:
     dependencies:
@@ -6987,8 +7053,7 @@ snapshots:
   binary-extensions@2.3.0:
     optional: true
 
-  binary-search@1.3.6:
-    optional: true
+  binary-search@1.3.6: {}
 
   bl@4.1.0:
     dependencies:
@@ -7029,7 +7094,6 @@ snapshots:
   breadth-filter@2.0.0:
     dependencies:
       object.entries: 1.1.9
-    optional: true
 
   browserslist@4.24.5:
     dependencies:
@@ -7101,7 +7165,6 @@ snapshots:
       es-define-property: 1.0.1
       get-intrinsic: 1.3.0
       set-function-length: 1.2.2
-    optional: true
 
   call-bound@1.0.4:
     dependencies:
@@ -7314,8 +7377,7 @@ snapshots:
 
   consola@3.4.2: {}
 
-  console-log-level@1.4.1:
-    optional: true
+  console-log-level@1.4.1: {}
 
   constantinople@4.0.1:
     dependencies:
@@ -7445,14 +7507,12 @@ snapshots:
       es-define-property: 1.0.1
       es-errors: 1.3.0
       gopd: 1.2.0
-    optional: true
 
   define-properties@1.2.1:
     dependencies:
       define-data-property: 1.1.4
       has-property-descriptors: 1.0.2
       object-keys: 1.1.1
-    optional: true
 
   delayed-stream@1.0.0: {}
 
@@ -7603,6 +7663,48 @@ snapshots:
       - supports-color
     optional: true
 
+  elastic-apm-node@4.13.0:
+    dependencies:
+      '@elastic/ecs-pino-format': 1.5.0
+      '@opentelemetry/api': 1.9.0
+      '@opentelemetry/core': 1.30.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/sdk-metrics': 1.30.1(@opentelemetry/api@1.9.0)
+      after-all-results: 2.0.0
+      agentkeepalive: 4.6.0
+      async-value-promise: 1.1.1
+      basic-auth: 2.0.1
+      breadth-filter: 2.0.0
+      cookie: 0.7.2
+      core-util-is: 1.0.3
+      end-of-stream: 1.4.4
+      error-callsites: 2.0.4
+      error-stack-parser: 2.1.4
+      escape-string-regexp: 4.0.0
+      fast-safe-stringify: 2.1.1
+      fast-stream-to-buffer: 1.0.0
+      http-headers: 3.0.2
+      import-in-the-middle: 1.13.1
+      json-bigint: 1.0.0
+      lru-cache: 10.2.0
+      measured-reporting: 1.51.1
+      module-details-from-path: 1.0.4
+      monitor-event-loop-delay: 1.0.0
+      object-filter-sequence: 1.0.0
+      object-identity-map: 1.0.2
+      original-url: 1.2.3
+      pino: 8.21.0
+      readable-stream: 3.6.2
+      relative-microtime: 2.0.0
+      require-in-the-middle: 7.5.2
+      semver: 7.7.2
+      shallow-clone-shim: 2.0.0
+      source-map: 0.8.0-beta.0
+      sql-summary: 1.0.1
+      stream-chopper: 3.0.1
+      unicode-byte-truncate: 1.0.0
+    transitivePeerDependencies:
+      - supports-color
+
   electron-to-chromium@1.5.157: {}
 
   emittery@0.13.1: {}
@@ -7621,7 +7723,6 @@ snapshots:
   end-of-stream@1.4.4:
     dependencies:
       once: 1.4.0
-    optional: true
 
   enhanced-resolve@5.18.1:
     dependencies:
@@ -7636,8 +7737,7 @@ snapshots:
   entities@6.0.0:
     optional: true
 
-  error-callsites@2.0.4:
-    optional: true
+  error-callsites@2.0.4: {}
 
   error-ex@1.3.2:
     dependencies:
@@ -7646,7 +7746,6 @@ snapshots:
   error-stack-parser@2.1.4:
     dependencies:
       stackframe: 1.3.4
-    optional: true
 
   es-define-property@1.0.1: {}
 
@@ -7777,6 +7876,8 @@ snapshots:
 
   etag@1.8.1: {}
 
+  event-target-shim@5.0.1: {}
+
   events@3.3.0: {}
 
   execa@0.10.0:
@@ -7882,15 +7983,13 @@ snapshots:
 
   fast-levenshtein@2.0.6: {}
 
-  fast-redact@3.5.0:
-    optional: true
+  fast-redact@3.5.0: {}
 
   fast-safe-stringify@2.1.1: {}
 
   fast-stream-to-buffer@1.0.0:
     dependencies:
       end-of-stream: 1.4.4
-    optional: true
 
   fast-uri@3.0.6: {}
 
@@ -8030,8 +8129,7 @@ snapshots:
       dezalgo: 1.0.4
       once: 1.4.0
 
-  forwarded-parse@2.1.2:
-    optional: true
+  forwarded-parse@2.1.2: {}
 
   forwarded@0.2.0: {}
 
@@ -8176,7 +8274,6 @@ snapshots:
   has-property-descriptors@1.0.2:
     dependencies:
       es-define-property: 1.0.1
-    optional: true
 
   has-symbols@1.1.0: {}
 
@@ -8250,7 +8347,6 @@ snapshots:
   http-headers@3.0.2:
     dependencies:
       next-line: 1.1.0
-    optional: true
 
   http2-wrapper@2.2.1:
     dependencies:
@@ -8262,7 +8358,6 @@ snapshots:
   humanize-ms@1.2.1:
     dependencies:
       ms: 2.1.3
-    optional: true
 
   iconv-lite@0.4.24:
     dependencies:
@@ -8282,6 +8377,13 @@ snapshots:
     dependencies:
       parent-module: 1.0.1
       resolve-from: 4.0.0
+
+  import-in-the-middle@1.13.1:
+    dependencies:
+      acorn: 8.14.1
+      acorn-import-attributes: 1.9.5(acorn@8.14.1)
+      cjs-module-lexer: 1.4.3
+      module-details-from-path: 1.0.4
 
   import-in-the-middle@1.4.2:
     dependencies:
@@ -8352,8 +8454,7 @@ snapshots:
 
   is-extglob@2.1.1: {}
 
-  is-finite@1.1.0:
-    optional: true
+  is-finite@1.1.0: {}
 
   is-fullwidth-code-point@3.0.0: {}
 
@@ -8366,7 +8467,6 @@ snapshots:
   is-integer@1.0.7:
     dependencies:
       is-finite: 1.1.0
-    optional: true
 
   is-interactive@1.0.0: {}
 
@@ -8823,6 +8923,10 @@ snapshots:
 
   jsesc@3.1.0: {}
 
+  json-bigint@1.0.0:
+    dependencies:
+      bignumber.js: 9.3.0
+
   json-bignum@0.0.3: {}
 
   json-buffer@3.0.1: {}
@@ -8933,8 +9037,7 @@ snapshots:
 
   lodash.omit@4.5.0: {}
 
-  lodash.sortby@4.7.0:
-    optional: true
+  lodash.sortby@4.7.0: {}
 
   lodash@4.17.21: {}
 
@@ -8956,6 +9059,8 @@ snapshots:
     optional: true
 
   lowercase-keys@3.0.0: {}
+
+  lru-cache@10.2.0: {}
 
   lru-cache@10.4.3: {}
 
@@ -9013,8 +9118,7 @@ snapshots:
     dependencies:
       tmpl: 1.0.5
 
-  mapcap@1.0.0:
-    optional: true
+  mapcap@1.0.0: {}
 
   marked@7.0.4: {}
 
@@ -9029,7 +9133,6 @@ snapshots:
     dependencies:
       binary-search: 1.3.6
       optional-js: 2.3.0
-    optional: true
 
   measured-reporting@1.51.1:
     dependencies:
@@ -9037,7 +9140,6 @@ snapshots:
       mapcap: 1.0.0
       measured-core: 1.51.1
       optional-js: 2.3.0
-    optional: true
 
   media-typer@0.3.0: {}
 
@@ -9441,11 +9543,9 @@ snapshots:
     dependencies:
       minimist: 1.2.8
 
-  module-details-from-path@1.0.4:
-    optional: true
+  module-details-from-path@1.0.4: {}
 
-  monitor-event-loop-delay@1.0.0:
-    optional: true
+  monitor-event-loop-delay@1.0.0: {}
 
   ms@2.1.3: {}
 
@@ -9483,8 +9583,7 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  next-line@1.1.0:
-    optional: true
+  next-line@1.1.0: {}
 
   nice-try@1.0.5:
     optional: true
@@ -9544,18 +9643,15 @@ snapshots:
 
   object-assign@4.1.1: {}
 
-  object-filter-sequence@1.0.0:
-    optional: true
+  object-filter-sequence@1.0.0: {}
 
   object-identity-map@1.0.2:
     dependencies:
       object.entries: 1.1.9
-    optional: true
 
   object-inspect@1.13.4: {}
 
-  object-keys@1.1.1:
-    optional: true
+  object-keys@1.1.1: {}
 
   object.entries@1.1.9:
     dependencies:
@@ -9563,7 +9659,8 @@ snapshots:
       call-bound: 1.0.4
       define-properties: 1.2.1
       es-object-atoms: 1.1.1
-    optional: true
+
+  on-exit-leak-free@2.1.2: {}
 
   on-finished@2.4.1:
     dependencies:
@@ -9587,8 +9684,7 @@ snapshots:
       is-wsl: 2.2.0
     optional: true
 
-  optional-js@2.3.0:
-    optional: true
+  optional-js@2.3.0: {}
 
   optionator@0.9.4:
     dependencies:
@@ -9614,7 +9710,6 @@ snapshots:
   original-url@1.2.3:
     dependencies:
       forwarded-parse: 2.1.2
-    optional: true
 
   os-tmpdir@1.0.2: {}
 
@@ -9766,8 +9861,15 @@ snapshots:
 
   picomatch@4.0.2: {}
 
+  pino-abstract-transport@1.2.0:
+    dependencies:
+      readable-stream: 4.7.0
+      split2: 4.2.0
+
   pino-std-serializers@3.2.0:
     optional: true
+
+  pino-std-serializers@6.2.2: {}
 
   pino@6.14.0:
     dependencies:
@@ -9779,6 +9881,20 @@ snapshots:
       quick-format-unescaped: 4.0.4
       sonic-boom: 1.4.1
     optional: true
+
+  pino@8.21.0:
+    dependencies:
+      atomic-sleep: 1.0.0
+      fast-redact: 3.5.0
+      on-exit-leak-free: 2.1.2
+      pino-abstract-transport: 1.2.0
+      pino-std-serializers: 6.2.2
+      process-warning: 3.0.0
+      quick-format-unescaped: 4.0.4
+      real-require: 0.2.0
+      safe-stable-stringify: 2.5.0
+      sonic-boom: 3.8.1
+      thread-stream: 2.7.0
 
   pirates@4.0.7: {}
 
@@ -9837,6 +9953,10 @@ snapshots:
 
   process-warning@1.0.0:
     optional: true
+
+  process-warning@3.0.0: {}
+
+  process@0.11.10: {}
 
   promise@7.3.1:
     dependencies:
@@ -9957,8 +10077,7 @@ snapshots:
 
   queue-microtask@1.2.3: {}
 
-  quick-format-unescaped@4.0.4:
-    optional: true
+  quick-format-unescaped@4.0.4: {}
 
   quick-lru@5.1.1: {}
 
@@ -10012,12 +10131,22 @@ snapshots:
       string_decoder: 1.3.0
       util-deprecate: 1.0.2
 
+  readable-stream@4.7.0:
+    dependencies:
+      abort-controller: 3.0.0
+      buffer: 6.0.3
+      events: 3.3.0
+      process: 0.11.10
+      string_decoder: 1.3.0
+
   readdirp@3.6.0:
     dependencies:
       picomatch: 2.3.1
     optional: true
 
   readdirp@4.1.2: {}
+
+  real-require@0.2.0: {}
 
   redis-errors@1.2.0: {}
 
@@ -10030,8 +10159,7 @@ snapshots:
   relateurl@0.2.7:
     optional: true
 
-  relative-microtime@2.0.0:
-    optional: true
+  relative-microtime@2.0.0: {}
 
   repeat-string@1.6.1: {}
 
@@ -10046,7 +10174,6 @@ snapshots:
       resolve: 1.22.10
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   resolve-alpn@1.2.1: {}
 
@@ -10189,7 +10316,6 @@ snapshots:
       get-intrinsic: 1.3.0
       gopd: 1.2.0
       has-property-descriptors: 1.0.2
-    optional: true
 
   setprototypeof@1.2.0: {}
 
@@ -10198,8 +10324,7 @@ snapshots:
       inherits: 2.0.4
       safe-buffer: 5.2.1
 
-  shallow-clone-shim@2.0.0:
-    optional: true
+  shallow-clone-shim@2.0.0: {}
 
   shebang-command@1.2.0:
     dependencies:
@@ -10264,6 +10389,10 @@ snapshots:
       flatstr: 1.0.12
     optional: true
 
+  sonic-boom@3.8.1:
+    dependencies:
+      atomic-sleep: 1.0.0
+
   sort-keys-length@1.0.1:
     dependencies:
       sort-keys: 1.1.2
@@ -10289,7 +10418,6 @@ snapshots:
   source-map@0.8.0-beta.0:
     dependencies:
       whatwg-url: 7.1.0
-    optional: true
 
   split2@4.2.0: {}
 
@@ -10297,8 +10425,7 @@ snapshots:
 
   sql-highlight@6.0.0: {}
 
-  sql-summary@1.0.1:
-    optional: true
+  sql-summary@1.0.1: {}
 
   stack-trace@0.0.10: {}
 
@@ -10306,8 +10433,7 @@ snapshots:
     dependencies:
       escape-string-regexp: 2.0.0
 
-  stackframe@1.3.4:
-    optional: true
+  stackframe@1.3.4: {}
 
   standard-as-callback@2.1.0: {}
 
@@ -10316,7 +10442,6 @@ snapshots:
   stream-chopper@3.0.1:
     dependencies:
       readable-stream: 3.6.2
-    optional: true
 
   streamsearch@1.1.0: {}
 
@@ -10473,6 +10598,10 @@ snapshots:
 
   text-hex@1.0.0: {}
 
+  thread-stream@2.7.0:
+    dependencies:
+      real-require: 0.2.0
+
   through@2.3.8: {}
 
   tlds@1.259.0:
@@ -10509,7 +10638,6 @@ snapshots:
   tr46@1.0.1:
     dependencies:
       punycode: 2.3.1
-    optional: true
 
   tree-kill@1.2.2: {}
 
@@ -10673,10 +10801,8 @@ snapshots:
     dependencies:
       is-integer: 1.0.7
       unicode-substring: 0.1.0
-    optional: true
 
-  unicode-substring@0.1.0:
-    optional: true
+  unicode-substring@0.1.0: {}
 
   universalify@2.0.1: {}
 
@@ -10750,8 +10876,7 @@ snapshots:
   webidl-conversions@3.0.1:
     optional: true
 
-  webidl-conversions@4.0.2:
-    optional: true
+  webidl-conversions@4.0.2: {}
 
   webpack-node-externals@3.0.0: {}
 
@@ -10798,7 +10923,6 @@ snapshots:
       lodash.sortby: 4.7.0
       tr46: 1.0.1
       webidl-conversions: 4.0.2
-    optional: true
 
   which@1.3.1:
     dependencies:
