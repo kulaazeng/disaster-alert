@@ -21,4 +21,10 @@ export class AlertSettingsService {
   async getAllAlertSettings(): Promise<AlertSetting[]> {
     return this.alertSettingRepository.find();
   }
+
+  async findByRegion(regionId: string): Promise<AlertSetting[]> {
+    return this.alertSettingRepository.find({
+      where: { regionId },
+    });
+  }
 }
