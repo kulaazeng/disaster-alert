@@ -10,6 +10,7 @@ import { RedisModule } from './redis/redis.module';
 import { BullModule } from '@nestjs/bull';
 import { ScheduleModule } from '@nestjs/schedule';
 import { LoggingModule } from './logging/logging.module';
+import { MailModule } from './mail/mail.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { LoggingModule } from './logging/logging.module';
     ScheduleModule.forRoot(),
     LoggingModule,
     RedisModule,
+    MailModule,
     RegionsModule,
     AlertSettingsModule,
     DisasterRisksModule,

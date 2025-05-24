@@ -31,10 +31,10 @@ export class USGSDataProcessor {
         ),
       );
 
-      this.log.info(
-        `USGS data fetched successfully for response`,
-        response.data,
-      );
+      // this.log.info(
+      //   `USGS data fetched successfully for response`,
+      //   response.data,
+      // );
 
       await this.redisService.set(
         `usgsdata:latest`,

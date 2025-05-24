@@ -8,6 +8,7 @@ import { AlertSettingsService } from 'src/alert-settings/alert-settings.service'
 import { RedisService } from 'src/redis/redis.service';
 import { LoggingService } from 'src/logging/logging.service';
 import { Logger } from 'winston';
+import { MailService } from 'src/mail/mail.service';
 
 @Injectable()
 export class DisasterRisksService {
@@ -18,6 +19,7 @@ export class DisasterRisksService {
     private readonly weatherService: DisasterDataService,
     private readonly redisService: RedisService,
     private readonly loggingService: LoggingService,
+    private readonly mailService: MailService,
   ) {
     this.log = this.loggingService.winstonLogger(
       'disasterRisksService',
@@ -114,6 +116,11 @@ export class DisasterRisksService {
     if (riskScore >= alertSetting?.thresholdScore) {
       this.log.info(
         `แจ้งเตือนสำหรับ region: ${region.regionId} และ disaster type: ${disasterType} ด้วย risk score: ${riskScore} และ threshold score: ${alertSetting?.thresholdScore}`,
+      );
+      await this.mailService.sendDisasterAlertEmail(
+        region.regionId,
+        disasterType,
+        this.getRiskLevel(riskScore),
       );
       return true;
     }
