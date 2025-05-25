@@ -19,6 +19,13 @@ export class RegionsService {
   ) {}
 
   async create(createRegionDto: CreateRegionDto) {
+    const existingRegion = await this.regionRepository.findOne({
+      where: { regionId: createRegionDto.regionId },
+    });
+    if (existingRegion) {
+      throw new BadRequestException('Region already exists');
+    }
+
     const regionData = new Region();
     regionData.regionId = createRegionDto.regionId;
     regionData.latitude = createRegionDto.locationCoordinates.latitude;
